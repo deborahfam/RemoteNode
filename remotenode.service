@@ -1,0 +1,15 @@
+[Unit]
+Description=RemoteNode Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/opt/remotenode
+ExecStart=/opt/remotenode/.venv/bin/python bot.py
+Restart=on-failure
+RestartSec=10
+EnvironmentFile=/opt/remotenode/.env
+
+[Install]
+WantedBy=multi-user.target
